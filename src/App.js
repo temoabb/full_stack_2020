@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import './App.css'
-import axios from 'axios'
+// import axios from 'axios'
 import Note from './components/Note'
 import noteService from './services/notes'
 import Notification from './services/Notification'
@@ -25,8 +25,6 @@ const App = (props) => {
   }, [])
 
 
-  // console.log('render', notes.length, 'notes')
-
   const addNote = (event) => {
     event.preventDefault()
     const noteObject = {
@@ -34,7 +32,6 @@ const App = (props) => {
       date: new Date().toISOString(),
       important: Math.random() < 0.5
     }
-
     noteService
       .create(noteObject)
       .then(returnedNote => {
@@ -74,7 +71,6 @@ const App = (props) => {
   const notesToShow = showAll
     ? notes
     : notes.filter(note => note.important === true)
-
 
   return (
 
